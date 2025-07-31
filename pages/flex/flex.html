@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
+    <nav>
+        <h1>Chen's Reteach Blog</h1>
+        <div>
+            <a href="../../index.html">index</a>
+        </div>
+    </nav>
+    <main>
+        <section class="title_section">
+            <h1>On Flexbox</h1>
+        </section>
+        <section class="information_section">
+            <h2>Created: 31st July, 2025  |  Last Updated: 31st July, 2025</h2>
+        </section>
+        <section class="blog-content_section">
+            <h1>What is a flexbox?</h1>
+            <p>A flexbox is simply a type of container that allows for more granular position of its child items using an x/y axis for alignment. On top of
+                item alignment, it also takes care of spacing, gaps, item size distribution based on available space, and how items wrap around based on available space.
+            <br><br>
+                Take for instance the following:
+            </p>
+            <pre><code>
+<span class="css_selector">.container</span> {
+    <span class="css_property">display</span>: flex;
+    <span class="css_property">justify-content</span>: center;
+    <span class="css_property">align-items</span>: center;
+}
+            </code></pre>
+        </section>
+    </main>
 </body>
 </html>
