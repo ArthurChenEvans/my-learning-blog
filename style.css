@@ -136,9 +136,7 @@ section {
     max-width: 80ch;
 }
 
-section p {
-    margin-top: 1rem;
-}
+
 
 .title_section h1 {
     font-size: 1.7em;
@@ -154,8 +152,8 @@ section p {
     margin-bottom: 1rem;
 }
 
-.blog-content_section p {
-    margin-bottom: 0.5rem;
+.blog-content_section p, .blog-content_section img, .blog-content_section h1 {
+    margin-bottom: 1rem;
 }
 
 code {
@@ -163,6 +161,7 @@ code {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     background-color: var(--code-block-background-colour);
+    margin-bottom: 1rem;
 }
 
 .code_block {
