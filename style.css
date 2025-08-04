@@ -23,8 +23,13 @@ html {
 }
 
 body {
+    font-size: clamp(1rem, 1rem + 0.5vw, 1.25rem);
     background-color: var(--primary-colour);
     color: var(--secondary-colour);
+}
+
+h1 {
+    font-size: 1.25em;
 }
 
 b, i {
@@ -56,6 +61,7 @@ nav h1 {
     margin-left: 1rem;
 }
 
+/* Slightly larger because on chrome browsers the scrollbar covers the button */
 nav #hamburger-checkbox_container {
     margin-right: 1.5rem;
 }
@@ -126,7 +132,8 @@ main {
 }
 
 section {
-    width: clamp(60ch, 70ch, 80ch);
+    width: 90%;
+    max-width: 80ch;
 }
 
 section p {
@@ -134,18 +141,17 @@ section p {
 }
 
 .title_section h1 {
-    font-size: 2.5em;
+    font-size: 1.7em;
 }
 
 .title_section {
     margin-bottom: 1rem;
 }
 
-.information_section {
-    font-size: 0.8em;
+.information_section h2{
+    font-size: 0.9em;
     color: var(--secondary-accent-colour);
-    margin-right: 8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .blog-content_section p {
@@ -180,5 +186,19 @@ code {
 @media(prefers-color-scheme: light) {
     body {
         background-color: var(--secondary-colour)
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+
+    section {
+        width: clamp(60ch, 70ch, 80ch);
     }
 }
