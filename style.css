@@ -26,6 +26,18 @@ body {
     color: var(--secondary-colour);
 }
 
+b, i {
+    color: var(--secondary-accent-colour);
+}
+
+a:link, a:visited {
+    color: var(--secondary-accent-colour);
+}
+
+img {
+    background-color: var(--secondary-colour);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -56,6 +68,10 @@ section {
     width: clamp(60ch, 70ch, 80ch);
 }
 
+section p {
+    margin-top: 1rem;
+}
+
 .title_section h1 {
     font-size: 2.5em;
 }
@@ -76,12 +92,16 @@ section {
 }
 
 code {
-    display: block;
     border-radius: 0.25rem;
-    border-left: 0.25rem solid var(--secondary-accent-colour);
     padding-left: 0.5rem;
-    width: 100%;
+    padding-right: 0.5rem;
     background-color: var(--code-block-background-colour);
+}
+
+.code_block {
+    border-left: 0.25rem solid var(--secondary-accent-colour);
+    display: block;
+    width: 100%;
 }
 
 .css_selector {
