@@ -41,15 +41,24 @@
     <span class="css_property">align-items</span>: center;
 }
             </code></pre>
-            <p>The above sets up a standard box as a flexbox. The other two properties define how the items inside the box are aligned between two axes: <b>main</b> and <b>cross</b>, with <code>justify-content</code> handling the <i>main axis</i> and <code>align-items</code> handling the <i>cross axis</i>.
+            <!-- <p>The above sets up a standard box as a flexbox. The other two properties define how the items inside the box are aligned between two axes: <b>main</b> and <b>cross</b>, with <code>justify-content</code> handling the <i>main axis</i> and <code>align-items</code> handling the <i>cross axis</i>.
                 <br><br>
                 So, what is the <i>main axis</i> and the <i>cross axis</i>? The <i>main axis</i> is the line that runs parallel to the flexbox's main direction, which there are two of: <b>row</b> and <b>column</b>. By default, <b>row</b> is the direction of the flexbox.
                 In this case, the <i>main axis</i> is the <b>x-axis</b>. So then, what is the <i>cross axis</i>? It's the one that "crosses" the <i>main axis</i>, or in other words, runs perpendicular to the flexbox's direction of flow. Using <b>row</b>'s case again
                 this would mean the <i>cross axis</i> is the <b>y-axis</b>. What do you think happens when we set the <code>flex-direction</code> property to <b>column</b>? If you guessed that the <i>main axis</i> and <i>cross axis</i> gets flipped, then you are correct!
                 Remember, the <i>main axis</i> will run parallel to the direction of the flexbox's flow, and the <i>cross axis</i> will run perpendicular to it.
+            </p> -->
+            <p>The above sets up a standard box as a flexbox. The other two properties define how the items inside the box are aligned between two axes: <b>main</b> and <b>cross</b>, with <code>justify-content</code> handling the main-axis and <code>align-items</code> handling the cross-axis.
+                <br><br>
+                So, what is the main-axis and the cross-axis? The main axis is the line that runs parallel to the flexbox's main direction, which there are two of: <b>row</b> and <b>column</b>. By default, row is the direction of the flexbox.
+                In this case, the main-axis is the <b>x-axis</b>. So then, what is the cross-axis? It's the one that "crosses" the main axis, or in other words, runs perpendicular to the flexbox's direction of flow. Using row's case again
+                this would mean the cross-axis is the <b>y-axis</b>. What do you think happens when we set the <code>flex-direction</code> property to column? If you guessed that the main-axis and cross-axis gets flipped, then you are correct!
+                Remember, the main axis will run parallel to the direction of the flexbox's flow, and the cross-axis will run perpendicular to it.
             </p>
             <p>To demonstrate, here is an image taken from <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#:~:text=If%20%E2%80%9Cregular%E2%80%9D%20layout%20is%20based%20on%20both%20block%20and%20inline%20flow%20directions%2C%20the%20flex%20layout%20is%20based%20on%20%E2%80%9Cflex%2Dflow%20directions%E2%80%9D.%20Please%20have%20a%20look%20at%20this%20figure%20from%20the%20specification%2C%20explaining%20the%20main%20idea%20behind%20the%20flex%20layout." target="_blank">css tricks</a>:</p>
             <img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg">
+            <h1>Flex Flow</h1>
+            <p>As stated prior, we can define the <i>main</i> and <i>cross</i> axis flow using the <code>flex-direction</code> property.</p>
         </section>
     </main>
 </body>
