@@ -25,11 +25,11 @@
             <h1>On Flexbox</h1>
         </section>
         <section class="information_section">
-            <h2>Created: 31st July, 2025  |  Last Updated: 4th August, 2025</h2>
+            <h2>Created: 31st July 2025 | Last Updated: 4th August 2025</h2>
         </section>
         <section class="blog-content_section">
             <h1>Flexbox Basics</h1>
-            <p>A flexbox is simply a type of container that allows for more granular position of its child items using an x/y axis for alignment. On top of
+            <p>A <b>flexbox</b> is simply a type of container that allows for more granular position of its child items using an x/y-axis for alignment. On top of
                 item alignment, it also takes care of spacing, gaps, item size distribution based on available space, and how items wrap around based on available space.
             <br><br>
                 Take for instance the following:
@@ -41,15 +41,64 @@
     <span class="css_property">align-items</span>: center;
 }
             </code></pre>
-            <p>The above sets up a standard box as a flexbox. The other two properties define how the items inside the box are aligned between two axes: <b>main</b> and <b>cross</b>, with <code>justify-content</code> handling the <i>main axis</i> and <code>align-items</code> handling the <i>cross axis</i>.
+            <p>The above sets up a normal box as a <i>flexbox</i>. The other two properties define how the items inside the box are aligned between two axes: <b>main</b> and <b>cross</b>, with <code>justify-content</code> handling the <i>main-axis</i> and <code>align-items</code> handling the <i>cross-axis</i>.
                 <br><br>
-                So, what is the <i>main axis</i> and the <i>cross axis</i>? The <i>main axis</i> is the line that runs parallel to the flexbox's main direction, which there are two of: <b>row</b> and <b>column</b>. By default, <b>row</b> is the direction of the flexbox.
-                In this case, the <i>main axis</i> is the <b>x-axis</b>. So then, what is the <i>cross axis</i>? It's the one that "crosses" the <i>main axis</i>, or in other words, runs perpendicular to the flexbox's direction of flow. Using <b>row</b>'s case again
-                this would mean the <i>cross axis</i> is the <b>y-axis</b>. What do you think happens when we set the <code>flex-direction</code> property to <b>column</b>? If you guessed that the <i>main axis</i> and <i>cross axis</i> gets flipped, then you are correct!
-                Remember, the <i>main axis</i> will run parallel to the direction of the flexbox's flow, and the <i>cross axis</i> will run perpendicular to it.
-            </p>
+                So, what is the <i>main-axis</i> and the <i>cross-axis</i>? The <i>main-axis</i> is the line that runs parallel to the flexbox's main direction, which there are two of: <b>row</b> and <b>column</b>. By default, <i>row</i> is the direction of the flexbox.
+                In this case, the <i>main-axis</i> is the <b>x-axis</b>. So then, what is the <i>cross-axis</i>? It's the one that "crosses" the <i>main-axis</i>, or in other words, runs perpendicular to the flexbox's direction of flow. Using <i>row</i>'s case again,
+                this would mean the <i>cross-axis</i> is the <b>y-axis</b>. What do you think happens when we set the <code>flex-direction</code> property to <i>column</i>? If you guessed that the <i>main-axis</i> and <i>cross-axis</i> gets flipped, then you are correct!
+                Remember, the <i>main-axis</i> will run parallel to the direction of the flexbox's flow, and the <i>cross-axis</i> will run perpendicular to it. </p>
+
+            <p>Note that these properties and all the ones that will come before <b>flex sizing</b> are placed on the <b>parent container</b> and <b>NOT</b> the individual child items.</p>
             <p>To demonstrate, here is an image taken from <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#:~:text=If%20%E2%80%9Cregular%E2%80%9D%20layout%20is%20based%20on%20both%20block%20and%20inline%20flow%20directions%2C%20the%20flex%20layout%20is%20based%20on%20%E2%80%9Cflex%2Dflow%20directions%E2%80%9D.%20Please%20have%20a%20look%20at%20this%20figure%20from%20the%20specification%2C%20explaining%20the%20main%20idea%20behind%20the%20flex%20layout." target="_blank">css tricks</a>:</p>
-            <img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg">
+            <img src="https://css-tricks.com/wp-content/uploads/2018/11/00-basic-terminology.svg" alt="A visual demonstration of the two axis along a flexbox. Sourced from css-tricks.com">
+            <h1>Flex Flow</h1>
+            <p>As stated prior, we can define the <i>main</i> and <i>cross</i> axes flow using the <code>flex-direction</code> property. From there, you can use <code>justify-content</code> to define how items are positioned along the <i>main-axis</i> and <code>align-items</code> for item positioning along the <i>cross-axis</i>.
+            For specific values for these properties you can check the <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css tricks website here</a>.</p>
+            <p>With the above being understood, you can now use another handy property that directs how items flow onto the next line (or not!). This is called the <b>wrapping</b> of a flexbox and uses the property <code>flex-wrap</code> to manage it. It's really simple as all it does to define whether items will resize themselves
+             to fit on a line via <code>flex-wrap: nowrap</code> or will keep their size and move onto the next line via <code>flex-wrap: wrap</code>.</p>
+            <p>Lastly, there is another property to introduce for this section. However, this property doesn't do anything new but merges two properties we have already talked about together. This property is called <code>flex-flow</code> and
+            takes two values: <code>flex-direction</code> and <code>flex-wrap</code>. Essentially, put in the values you'd usually put for those two properties into <code>flex-fow</code> in that stated order. For example:</p>
+            <pre><code class="code_block">
+<span class="css_selector">.container</span> {
+    <span class="css_property">flex-flow</span>: row wrap;
+}
+            </code></pre>
+            <h1>Flex Sizing</h1>
+            <p>This section I will introduce three new flex properties: <b>grow</b>, <b>shrink</b>, <b>basis</b>. One thing to keep in mind here is that all 3 of these properties are put on the <b>child items</b> themselves and <b>NOT</b> the parent.</p>
+            <p>If it isn't already obvious based on the previous naming schemes, these three properties are named
+            <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> respectively. For shorthand, you can use the <code>flex</code> property, which defines those three values in the aforementioned order.
+                The reason I bring this up now is to show a common and default layout for the <code>flex</code> property:</p>
+            <pre><code class="code_block">
+<span class="css_selector">.item</span> {
+    <span class="css_property">flex</span>: 0 1 auto;
+}
+            </code></pre>
+            <p>Firstly, I want to ask: what do you think this does? Recall that the <i>property is applied on the child element</i>. If you don't have any clue, that's fine — it's just an exercise to take a guess as well as to promote the <b>hypercorrection effect*</b>.</p>
+            <p>I also want you to keep in mind that for <b>both</b> <code>flex-grow</code> and <code>flex-shrink</code>, their values <b>CANNOT be negative</b>.</p>
+            <p>To begin with, We will start with the <i>flex-grow</i> part of the property. As we see, it is set to <code>0</code>. If you've played around with this setting, then you'll notice an item with a <code>flex-grow: 0</code>
+            will <b>not take up any leftover space within a container's line</b>. Which makes sense considering the value is set to <code>0</code>. If we were to set this value to say, <code>1</code>, but
+            all the other items in the container are still 0, then what do you think will happen? If you've guessed that only the item with a <code>flex-grow: 1</code> will <b>grow to fit the remaining space</b>, then you'd be right!
+                Let's try another thought experiment. Imagine all items within a container are set to <code>flex-grow: 1</code>. What do you think will happen now? Well, the answer is <b>all of them</b> <i>will attempt to fill in
+                any remaining space</i> with said space being <b>distributed equally</b> (since they all share the same growth factor) among the items. Lastly, for extra brownie points, what do you think will happen if all child items have a
+            <code>flex-grow: 1</code> except for a lone child having a <code>flex-grow: 2</code>? Let's think it through: We now know that <i>any number greater than zero will cause the item to attempt to fill in remaining space</i>. So, if one of
+            them has a larger growth factor than the others, it will receive a proportionally larger share of the <b>leftover space</b>. In this case it would be receiving <b>twice as much of the extra space</b> as the items with <code>flex-grow: 1</code>.</p>
+
+            <p>Now that the <code>flex-grow</code> property has been grasped, what do you think <code>flex-shrink</code> does? If you've guessed the opposite of <code>flex-grow</code>, then you'd be correct again!
+            To put it simply, when the space of the container is <b>smaller</b> than the <b>total size of all child items</b>, then <b>how much should I shrink by</b>? Let's take a look at the default value set in <code>flex</code>.
+            As you can see, it is set to <code>1</code>. What this means is, by default, all child items within a flexbox container should <i>shrink equally</i> by <b>cutting off occupied space from the children</b>, where how much a child is cut by is relative to its <code>flex-basis</code>. The bigger the <i>basis</i>, the greater the cut.
+            Additionally, by setting the <code>flex-shrink</code> to <code>0</code> you are essentially telling the child to not take part in the shrink calculation, which would cause overflow over the container.</p>
+
+            <p>Lastly, there is the <code>flex-basis</code> property with a default value of <code>auto</code>. This property defines the <b>starting size before</b> remaining space is distributed.
+                The starting size of <code>auto</code> tells the property to check the child element's <code>height</code> or <code>width</code> property. Again, you can check <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks</a> for more information regarding the available values; <code>auto</code> is just the most commonly used one.
+                That being said, there is a special value used for <code>flex-basis</code>, especially when you need to ensure all items within a container are equally sized regardless of their content. To do this, we use a value of <code>0</code>.
+                What does that value do? Well, if we imagine a value of <code>auto</code> translating to <b>"When growth happens, add onto my initial size the distributed space. When shrink happens, based on my initial size, cut off space from me"</b>, then we can think
+                of setting a <code>flex-basis</code> to <code>0</code> as <b>"When growth happens my size will be exactly the given distributed space. When shrink happens my size will always be my minimum width, even if that means overflow"</b>. Shorthand for this is typically <code>flex: 1 1 0</code> or simply just <code>flex: 1</code>.
+                Of course, this would also mean you will need to make ALL elements that value, or else they won't be sized equally.
+            </p>
+
+            <h1>Notes</h1>
+            <p><b id="hypercorrection_note">Hypercorrection Effect:</b> A psychological term to refer to the idea that correcting yourself after getting something you were confident about wrong improves your memory
+            of the item compared to just getting the answer correct in the first place.</p>
         </section>
     </main>
 </body>
