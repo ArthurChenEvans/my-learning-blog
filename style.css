@@ -122,8 +122,6 @@ nav a {
     background-color: var(--primary-accent-shadow);
 }
 
-
-
 main {
     display: flex;
     flex-direction: column;
@@ -166,6 +164,8 @@ code {
     border-left: 0.25rem solid var(--secondary-accent-colour);
     display: block;
     width: 100%;
+    font-size: 0.7em;
+    overflow-x: scroll;
 }
 
 .css_selector {
@@ -177,7 +177,7 @@ code {
 }
 
 .css_value {
-
+    color: var(--css-value-colour);
 }
 
 @media(prefers-color-scheme: light) {

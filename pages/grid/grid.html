@@ -21,5 +21,107 @@
             <a href="grid.html">Grid</a>
         </div>
     </nav>
+
+    <main>
+        <section class="title_section">
+            <h1>The Grid Layout</h1>
+        </section>
+        <section class="information_section">
+            <h2>Created: 5th August 2025 | Last Updated: 6th August 2025</h2>
+        </section>
+        <section class="blog-content_section">
+            <h1>Basics</h1>
+            <p>The grid layout is similar to flexbox in that it aims to define how content is laid out, however, it works across a 2D plane rather than a 1D line that flexbox works in.
+            To be more precise, grid layout splits up the contained space into boxes called <b>cells</b>, with each <i>cell</i> containing content akin to an item in a flexbox.</p>
+            <p>As with flexbox the first thing you'd need to do is change a container's <code>display</code> property. In this case, rather than <code>flex</code> you'd instead set it to <code>grid</code>.
+            Before I continue, there is some important terminology regarding grid. Firstly, other than <i>cells</i>, there are <b>grid lines</b>, which are the lines that divide up the container into said <i>cells</i>.
+                Secondly, there are two ways you can describe multiple sets of <i>cells</i>: <b>track</b> and
+                <b>area</b>. If you're familiar with working with tables within spreadsheets, SQL, or even simple HTML
+                tables, then a <i>track</i>
+                is a single column or row within the grid container. If you aren't familiar with those words, then all it means is a <i>track</i> is a single continuous line of adjacent cells going in one direction.
+            An <i>area</i>, on the other hand, is like an area of a shape (think specifically rectangles and squares). In maths, you had questions asking to solve the area of a 5 cm by 3 cm rectangle. A <i>grid area</i> is essentially the same thing,
+            except rather than units of measurements, you'd think of it as five <i>cells</i> by three <i>cells</i>. For better visualization, check out the terminology section <a href="https://css-tricks.com/snippets/css/complete-guide-grid/#aa-css-grid-basics" target="_blank">here</a>.</p>
+            <p><b>Quick note:</b> Unless explicitly stated otherwise, most properties are assumed to be put inside the parent container and not the child item.</p>
+            <h1>Creating your grid</h1>
+            <p>To begin with, there are two properties you can apply to the parent grid container: <code>grid-template-columns</code> and <code>grid-template-rows</code>.
+                These two properties define track sizes and the number of rows and columns in your grid. You specify
+                this through the number of units provided. Both properties accept various units including:
+            <code>%</code>, <code>px</code>, <code>fr</code> (which is like <code>%</code> but also takes into account of its sibling cells AND calculates those sizes after cells with a fixed size such as <code>px</code> are placed), as well as <code>auto</code>. Now, a neat thing regarding
+            these properties is you can also name something within the grid container. To be precise, what you are naming are the grid-lines. For example:</p>
+            <pre><code class="code_block">
+<span class="css_selector">.container</span> {
+    <span class="css_property">grid-template-columns</span>: [col1-start] <span class="css_value">1fr</span> [col1-end];
+    <span class="css_property">grid-template-rows</span>: [row1-start] <span class="css_value">1fr</span> [row1-end];
+}
+            </code></pre>
+            <p>Notice how the names are start and end? That's because the 'thing' we are targeting with the naming values are the lines, so we are naming <i>where</i> the start of a track is and where it ends.
+            You can also give a line multiple names simply by separating the names with a space between them within them like so: <code>[row1-end row2-start]</code>.</p>
+
+            <p>Next up, there's a really handy property for visualizing the big picture layout of your grid. This is <code>grid-template-areas</code>. Each row is separated by a new line, and the values are within quotes
+            like <code>"this"</code>. These values act as semantic descriptors for what that area contains, with a special character <code>"."</code> to denote it is an empty cell. It is important to keep in mind
+            that the 'number' of values per quote should be the same. For instance, you can't have <code>"header header header"</code> on one line and then <code>"main main main main"</code> on the other. You would have to either add an extra
+            <code>"header"</code> or remove one <code>"main"</code>. To demonstrate, here is an example I've ripped off of css-tricks:</p>
+            <pre><code class="code_block">
+<span class="css_selector">.item-a</span> {
+    <span class="css_property">grid-area</span>: <span class="css_value">header</span>;
+}
+<br>
+<span class="css_selector">.item-b</span> {
+    <span class="css_property">grid-area</span>: <span class="css_value">main</span>;
+}
+<br>
+<span class="css_selector">.item-c</span> {
+    <span class="css_property">grid-area</span>: <span class="css_value">sidebar</span>;
+}
+<br>
+<span class="css_selector">.item-d</span> {
+    <span class="css_property">grid-area</span>: <span class="css_value">footer</span>;
+}
+<br>
+<span class="css_selector">.container</span> {
+    <span class="css_property">display</span>: <span class="css_value">grid</span>;
+    <span class="css_property">grid-template-columns</span>: [col1-start] <span class="css_value">50px</span> [col1-end col2-start] <span class="css_value">50px</span> [col2-end col3-start] <span class="css_value">50px</span> [col3-end col4-start] <span class="css_value">50px</span> [col4-end];
+    <span class="css_property">grid-template-rows</span>: [row1-start] <span class="css_value">auto</span> [row1-end row2-start] <span class="css_value">auto</span> [row2-end row3-start] <span class="css_value">auto</span> [row3-end];
+    <span class="css_property">grid-template-areas</span>:
+        <span class="css_value">"header header header header"</span>
+        <span class="css_value">"main main . sidebar"</span>
+        <span class="css_value">"footer footer footer footer"</span>;
+}
+</code></pre>
+            <p>Finally, you can combine these all in a shorthand property: <code>grid-template</code>. The syntax looks confusing at first, so I'll guide you through it. Firstly, imagine you are setting up the rows like you would with a row template, with each new line representing a new row.
+            Now, add the divided section in quotes for that specific row (like you would with area templates) directly before the unit. Lastly, add a <code>/</code> and define your template columns. What you should have is something along the lines of:</p>
+            <pre><code class="code_block">
+<span class="css_selector">.container</span> {
+    <span class="css_property">grid-template</span>:
+        [row1-start] <span class="css_value">"header header header"</span> <span class="css_value">25px</span> [row1-end]
+        [row2-start] <span class="css_value">"footer footer footer"</span> <span class="css_value">25px</span> [row2-end]
+        / <span class="css_value">auto</span> <span class="css_value">50px</span> <span class="css_value">auto</span>;
+}
+</code></pre>
+            <p>If this still doesn't make sense, then don't fret as this is pretty hard to get down, so practice using it in making simple layouts for pages.</p>
+
+            <p>Before we move on, there is a neat CSS function I'd like to introduce that is largely used here. It's <code>repeat(n, size)</code>. It's especially useful if your rows and/or columns are
+            of equal sizes. So instead of repeating the size <code>25px</code> 3 times to get three rows, you can do <code>grid-template-rows: repeat(3, [row-start] 25px [row-end])</code>. To further
+            improve it for responsiveness, you can use the <code>minmax(min-size, max-size)</code> function too! For example: <code>repeat(3, minmax(100px, 1fr))</code>.</p>
+
+            <h1>Item Alignment</h1>
+            <p>Like flexbox, we have properties both for the parent and child that align items within their cells via <code>justify-items</code> & <code>align-items</code>, as well as aligning the cell within the container via <code>justify-content</code> & <code>align-content</code>. The <code>justify</code>
+                ones align items along the x-axis while the <code>align</code> based ones align items along the y-axis.
+            On top of this, there is a shorthand called <code>place-items</code> and <code>place-content</code> that combines the two respective properties above. The items section only has the values of <code>start</code>, <code>center</code>, <code>end</code>, and <code>stretch</code>, while
+                content shares the same values as the flexbox equivalents. Lastly for this section, there is <code>justify-self</code>, <code>align-self</code>, and <code>place-self</code>. Functionally, these do the same things as the <code>-items</code> variants, but are applied on the item itself allowing for more granular control.
+            </p>
+            <h1>Automating grids</h1>
+            <p>Sometimes you don't know how many columns, rows, cells, etc. you want in your grid, but you do know how big things should be. This is where the <code>grid-auto-</code> family of properties come in.
+                We can specifically start with <code>grid-auto-columns</code> and <code>grid-auto-rows</code>. Simply, they take any unit value and say <b>"if a new cell is automatically generated, make them this big"</b>. So for example,
+                if I were to set <code>grid-auto-columns: 80px</code>, then any newly generated column will be <code>80px</code> wide.
+            </p>
+            <p>Then there is <code>grid-auto-flow</code>. It defines how the <b>auto-placement algorithm</b> should automatically place cells. You can either set it to <code>rows</code> or <code>columns</code>.</p>
+
+            <p>Recall back to the <code>repeat(n, size)</code> function. You can put something else where <code>n</code> is that aren't numbers. Two of them to be exact: <code>auto-fill</code> and <code>auto-fit</code>. To explain, what <code>auto-fill</code> does is if there is more space than what is defined in the grid, then it will attempt to fill it by adding more columns or rows
+                even if it means those cells are empty (without content). Visually, what you will see is a column/row with some cells filled in and then just empty space for the rest of the track. That doesn't mean literally nothing is there,
+                the space is still occupied, just that there is not content to occupy the empty space. On the other hand, <b>auto-fit</b> will do something similar, however, if there are empty cells, then it will collapse them and distribute that space to the cells with content to fill in the remaining space.
+            </p>
+        </section>
+    </main>
 </body>
 </html>
