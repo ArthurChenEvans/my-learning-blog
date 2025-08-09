@@ -180,10 +180,40 @@ code {
     color: var(--css-value-colour);
 }
 
-@media(prefers-color-scheme: light) {
-    body {
-        background-color: var(--secondary-colour)
-    }
+.cards_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    padding: 2rem;
+}
+
+.card {
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+    height: 385px;
+}
+
+.card img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    object-fit: cover;
+    max-height: 50%;
+}
+
+.card h2, p, a {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.card a {
+    color: var(--primary-accent-colour);
+}
+
+.card h2 {
+    font-size: 1.25em;
 }
 
 @media (min-width: 768px) {
