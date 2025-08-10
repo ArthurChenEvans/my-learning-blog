@@ -20,10 +20,6 @@
     margin: 0;
 }
 
-html, body {
-    overscroll-behavior-y: none;
-}
-
 html {
     font-family: 'Roboto', sans-serif;
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
