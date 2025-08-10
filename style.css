@@ -86,6 +86,36 @@ nav a {
     justify-content: space-between;
 }
 
+#hamburger-checkbox:checked ~ #hamburger-checkbox_container .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 5px);
+    transition: transform 0.2s ease-in-out;
+}
+
+#hamburger-checkbox:checked ~ #hamburger-checkbox_container .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#hamburger-checkbox:checked ~ #hamburger-checkbox_container .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -5px);
+    transition: transform 0.2s ease-in-out;
+}
+
+#hamburger-checkbox:not(:checked) ~ #hamburger-checkbox_container .hamburger-line:nth-child(1) {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+#hamburger-checkbox:not(:checked) ~ #hamburger-checkbox_container .hamburger-line:nth-child(2) {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#hamburger-checkbox:not(:checked) ~ #hamburger-checkbox_container .hamburger-line:nth-child(3) {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+}
+
 #hamburger-checkbox_container:hover {
     cursor: pointer;
 }
@@ -98,6 +128,7 @@ nav a {
     width: 100%;
     border: 0.15rem solid var(--secondary-colour);
     border-radius: 0.25rem;
+    background-color: var(--secondary-colour);
 }
 
 #modal_menu {
