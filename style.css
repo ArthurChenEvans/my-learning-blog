@@ -20,19 +20,20 @@
     margin: 0;
 }
 
+html, body {
+    overscroll-behavior-y: none;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
     background-size: cover;
     min-height: 100vh;
-    background-attachment: fixed;
 }
 
 body {
     font-size: clamp(1rem, 1rem + 0.5vw, 1.25rem);
     color: var(--secondary-colour);
-    min-height: 100vh;
-    background: none;
 }
 
 h1 {
