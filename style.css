@@ -24,8 +24,8 @@ html {
     font-family: 'Roboto', sans-serif;
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
     background-size: cover;
+    height: 100%;
     min-height: 100vh;
-    overscroll-behavior-y: none;
 }
 
 body {
