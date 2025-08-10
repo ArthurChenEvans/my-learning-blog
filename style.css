@@ -30,14 +30,11 @@ body {
     color: var(--secondary-colour);
     background-size: cover;
     height: 100%;
+    min-height: 100vh;
 }
 
 h1 {
     font-size: 1.25em;
-}
-
-b, i {
-    color: var(--secondary-accent-colour);
 }
 
 a:link, a:visited {
@@ -107,7 +104,7 @@ nav a {
     width: 100vw;
     height: 100vh;
     top: 0;
-    margin-top: 4rem;
+    padding-top: 4rem;
     position: fixed;
     z-index: -1;
 }
@@ -131,6 +128,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
+    z-index: -1;
 }
 
 section {
@@ -162,6 +160,7 @@ code {
     padding-right: 0.5rem;
     background-color: var(--code-block-background-colour);
     margin-bottom: 1rem;
+    color: var(--secondary-accent-colour);
 }
 
 .code_block {
@@ -170,6 +169,7 @@ code {
     width: 100%;
     font-size: 0.7em;
     overflow-x: scroll;
+    box-shadow: 0 0 4px var(--secondary-accent-colour);
 }
 
 .css_selector {
@@ -207,7 +207,7 @@ code {
     max-height: 50%;
 }
 
-.card h2, p, a {
+.card h2, .card p, .card a {
     padding-top: 0.5rem;
     padding-left: 0.5rem;
 }
