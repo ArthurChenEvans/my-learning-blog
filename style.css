@@ -61,8 +61,12 @@ nav h1 {
     margin-left: 1rem;
 }
 
+.nav_links {
+    display: none;
+}
+
 /* Slightly larger because on chrome browsers the scrollbar covers the button */
-nav #hamburger-checkbox_container {
+nav #hamburger-checkbox_container, .nav_links {
     margin-right: 1.5rem;
 }
 
@@ -231,5 +235,24 @@ code {
 
     section {
         width: clamp(60ch, 70ch, 80ch);
+    }
+
+    #hamburger-checkbox, #hamburger-checkbox_container {
+        display: none;
+    }
+
+    .nav_links {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+    }
+
+    .nav_links a {
+        color: white;
+    }
+
+    .nav_links a:hover {
+        border-bottom: 0.25rem solid var(--secondary-colour);
+        transition: border-bottom 0.15s ease-in-out;
     }
 }
