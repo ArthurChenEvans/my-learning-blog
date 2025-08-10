@@ -199,25 +199,32 @@ code {
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    background-color: var(--secondary-colour);
-    color: var(--primary-colour);
-    height: 385px;
+    background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
+    color: var(--secondary-colour);
+    border: 0.15rem solid var(--secondary-colour);
+    max-height: 385px;
+    min-height: fit-content;
 }
 
 .card img {
+    height: 50%;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     object-fit: cover;
-    max-height: 50%;
 }
 
-.card h2, .card p, .card a {
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;
+.card_text {
+    height: 50%;
+    padding: 1rem;
+    line-height: 1;
+}
+
+.card_text h2, .card_text p {
+    margin-bottom: 0.5rem;
 }
 
 .card a {
-    color: var(--primary-accent-colour);
+    color: var(--secondary-accent-colour);
 }
 
 .card h2 {
