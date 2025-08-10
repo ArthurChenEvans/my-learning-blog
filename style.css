@@ -25,6 +25,7 @@ html {
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
     background-size: cover;
     min-height: 100vh;
+    overscroll-behavior-y: none;
 }
 
 body {
