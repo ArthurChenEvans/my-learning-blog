@@ -225,6 +225,10 @@ code {
     padding: 2rem;
 }
 
+.card_link {
+    text-decoration: none;
+}
+
 .card {
     border-radius: 0.5rem;
     display: flex;
@@ -232,8 +236,8 @@ code {
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
     color: var(--secondary-colour);
     border: 0.15rem solid var(--secondary-colour);
-    max-height: 385px;
     min-height: fit-content;
+    max-height: 385px;
 }
 
 .card img {
