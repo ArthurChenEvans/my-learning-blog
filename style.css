@@ -236,19 +236,19 @@ code {
     background-image: linear-gradient(to bottom, var(--gradient-dark), var(--gradient-light));
     color: var(--secondary-colour);
     border: 0.15rem solid var(--secondary-colour);
-    min-height: fit-content;
-    max-height: 385px;
+    height: 360px;
 }
 
 .card img {
-    height: 50%;
+    height: auto;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     object-fit: cover;
+    max-height: 50%;
 }
 
 .card_text {
-    height: 50%;
+    height: auto;
     padding: 1rem;
     line-height: 1;
 }
