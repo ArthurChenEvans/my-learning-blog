@@ -12,6 +12,12 @@
     --css-selector-colour: hsl(0, 100%, 55%);
     --css-property-colour: hsl(147 100% 60.1%);
     --css-value-colour: hsl(41 100% 60.1%);
+    --js-keyword-colour: hsl(0, 100%, 55%);
+    --js-function-colour: hsl(147 100% 60.1%);
+    --js-string-colour: hsl(41 100% 60.1%);
+    --js-comment-colour: hsl(79 0% 50%);
+    --js-number-colour: hsl(200 100% 60%);
+    --js-operator-colour: hsl(300 100% 70%);
 }
 
 * {
@@ -38,10 +44,6 @@ h1 {
 
 a:link, a:visited {
     color: var(--secondary-accent-colour);
-}
-
-img {
-    background-color: var(--secondary-colour);
 }
 
 nav {
@@ -188,6 +190,10 @@ section {
     margin-bottom: 1rem;
 }
 
+.blog-content_section img {
+    width: 100%;
+}
+
 code {
     border-radius: 0.25rem;
     padding-left: 0.5rem;
@@ -204,6 +210,7 @@ code {
     font-size: 0.7em;
     overflow-x: scroll;
     box-shadow: 0 0 4px var(--secondary-accent-colour);
+    color: white;
 }
 
 .css_selector {
@@ -216,6 +223,31 @@ code {
 
 .css_value {
     color: var(--css-value-colour);
+}
+
+.js_keyword {
+    color: var(--js-keyword-colour);
+}
+
+.js_function {
+    color: var(--js-function-colour);
+}
+
+.js_string {
+    color: var(--js-string-colour);
+}
+
+.js_comment {
+    color: var(--js-comment-colour);
+    font-style: italic;
+}
+
+.js_number {
+    color: var(--js-number-colour);
+}
+
+.js_operator {
+    color: var(--js-operator-colour);
 }
 
 .cards_container {

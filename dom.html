@@ -29,13 +29,49 @@
             <h1>DOM Manipulation</h1>
         </section>
         <section class="information_section">
-            <h2>Created: 12th August 2025 | Last Updated: 12th August 2025</h2>
+            <h2>Created: 12th August 2025 | Last Updated: 18th August 2025</h2>
         </section>
         <section class="blog-content_section">
             <h1>The Basics</h1>
             <p>Firstly, to understand what exactly <b>DOM manipulation</b> means, I'll have to unabbreviate "DOM",
             which is the <b>Document Object Model</b>. What is the DOM? It's an interactable JavaScript object that acts as an API
-            for us to fiddle with the HTML elements and their attributes without directly editing the HTML file itself.</p>
+            for us to fiddle with the HTML elements and their attributes without directly editing the HTML file itself.
+            </p>
+            <p>One of the simplest ways to do that is via querying the <code>document</code> object and editing the <code>classList</code>. The <code>classList</code>
+                is a property of a queried element that allows direct access to its <code>class=""</code> attribute like so:
+            </p>
+
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> heading = document.<span class="js_function">querySelector</span>(<span class="js_string">'h1'</span>);
+heading.classList.<span class="js_function">remove</span>(<span class="js_string">'old_class'</span>);
+heading.classList.<span class="js_function">add</span>(<span class="js_string">'new_class'</span>);
+
+<span class="js_comment">// Below will disable/enable class based on current state</span>
+heading.classList.<span class="js_function">toggle</span>(<span class="js_string">'new_class'</span>);
+            </code></pre>
+            <p>On top of this, there is also <b>event listening</b>. <i>Events</i> in JavaScript are listeners for specific actions such as pressing a key or clicking a button.
+            When the <i>event</i> of clicking a button is detected the element associated with that event gets fired and performs any additional functionalities. For example:
+            </p>
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> button = document.<span class="js_function">querySelector</span>(<span class="js_string">'.modal-button'</span>);
+button.<span class="js_function">addEventListener</span>(<span class="js_string">'click'</span>, () => {
+    openModal();
+};
+            </code></pre>
+            <p>In the above example I have selected a button with a class of <code>modal-button</code>. From there,
+            I have added an event listener that listens to a click event, and once it is detected, the function that handles
+            opening up a modal is called.</p>
+            <h1>The DOM API Hierarchy</h1>
+            <p>Fundamentally, most objects in the DOM API are a <b>node</b>. To be more precise, they all have <i>node</i> as a parent. So what is a <i>node?</i>
+            It's a representation of whatever is on an HTML document, with <code>Element</code>, <code>Comment</code>, <code>Text</code>, and <code>Document</code>
+            all being represented with a <code>Node</code> parent. A single HTML file typically has all of these various <i>nodes</i> under the file's main <code>NodeList</code>.</p>
+            <p>Additionally, <i>nodes</i> share a sibling object which is known as the <b>window</b> object. This handles global properties and functions that deal with the browser's
+            window itself. Lastly, both the <i>node</i> and <i>window</i> object can have an even higher parent if there is an event attached to them. This parent is the
+            <code>EventTarget</code>. Recall the example event listener we made earlier. See where the <code>() => { }</code> part of the code is? Typically, we can pass <code>e</code> as a paremeter
+            to the function, where <code>e</code> represents an event. You can then access the <code>EventTarget</code> property of the event via <code>e.target</code>. The importance of this
+            will be explained later, but for now I wanted you to be aware of it.</p>
+            <p>For a simple visualization I have made a sketch below:</p>
+            <img src="images/DOM_hierarchy.png" alt="A sketch of the DOM hierarchy. Made in excalidraw.">
         </section>
     </main>
 </body>
