@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Modern Operators</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>Chen's Reteach Blog</h1>
+        <ul class="nav_links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+        <input type="checkbox" id="hamburger-checkbox">
+        <label for="hamburger-checkbox" id="hamburger-checkbox_container">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
+        <div id="modal_menu">
+            <a href="index.html">Home</a>
+            <a href="articles.html">Articles</a>
+        </div>
+    </nav>
+    <main>
+        <section class="title_section">
+            <h1>DOM Manipulation</h1>
+        </section>
+        <section class="information_section">
+            <h2>Created: 26th August 2025 | Last Updated: 26th August 2025</h2>
+        </section>
+        <section class="blog-content_section">
+            <h1>Spread operator and Rest Pattern</h1>
+            <p>The spread operator is a way to "unravel" arrays and objects into individual elements. To do so, you
+                place <code>...</code> in front of the to-be unraveled object or array like so: <code>...my_object</code>.
+                This operator is especially useful in two things: <b>deconstructing</b> and <b>the rest pattern</b>.</p>
+            <p>We'll start with deconstructing. Imagine you have an array of values you wish to put into their own variables.
+                To do this in one line, you can wrap the variable names in braces and equate to the <code>...array</code> like so:
+            </p>
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> person_array = [ <span class="js_number">23</span>, <span class="js_string">"Chen"</span>, <span class="js_number">180</span> ];
+<span class="js_keyword">const</span> { age, name, height } = ...person_array
+                </code></pre>
+            <p>This can also be done for objects like so (the variable names must be the exact same as object's property names):</p>
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> person_object = { age = <span class="js_number">23</span>, name = <span class="js_string">"Chen"</span>, height = <span class="js_number">180</span> };
+<span class="js_keyword">const</span> { age, name, height } = ...person_object
+            </code></pre>
+            <p>Next up is the rest pattern, which is putting the spread operator just before an argument in a function to say
+            "pass the rest of the arguments in as a list." To demonstrate:</p>
+            <pre><code class="code_block">
+<span class="js_function">function</span> sum(...numbers) {
+    <span class="js_keyword">let</span> total <span class="js_operator">=</span> <span class="js_number">0</span>;
+    <span class="js_keyword">for</span> (<span class="js_keyword">let</span> number <span class="js_keyword">of</span> numbers) {
+        total <span class="js_operator">+=</span> number;
+    }
+    <span class="js_keyword">return</span> total;
+}
+<span class="js_function">sum</span>(<span class="js_number">1</span>, <span class="js_number">2</span>, <span class="js_number">3</span>, <span class="js_number">4</span>, <span class="js_number">5</span>); <span class="js_comment">// 15</span>
+            </code></pre>
+        </section>
+    </main>
+</body>
+</html>
