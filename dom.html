@@ -29,7 +29,7 @@
             <h1>DOM Manipulation</h1>
         </section>
         <section class="information_section">
-            <h2>Created: 12th August 2025 | Last Updated: 18th August 2025</h2>
+            <h2>Created: 12th August 2025 | Last Updated: 25th August 2025</h2>
         </section>
         <section class="blog-content_section">
             <h1>The Basics</h1>
@@ -72,6 +72,44 @@ button.<span class="js_function">addEventListener</span>(<span class="js_string"
             will be explained later, but for now I wanted you to be aware of it.</p>
             <p>For a simple visualization I have made a sketch below:</p>
             <img src="images/DOM_hierarchy.png" alt="A sketch of the DOM hierarchy. Made in excalidraw.">
+            <h1>Capturing, Targeting, and Bubbling</h1>
+            <p>What do you think goes on behind the scenes when you say... click on an element to activate an event?
+            I'll tell you: There are three phases: capturing, targeting, and bubbling. This happens in order, but it's
+            easier if I explain out of order starting with targeting. I am assuming you've played around with the dev tools before.
+            When you select interact mode and hover over an element that is a child of another element AND inside it, you'll notice
+            that what is selected is that said child element. The reason for this is children, unless specified otherwise, have a higher z-index. </p>
+            <p>Now, I want you to imagine that the child is an image in a card and the parent is the card container, with the container having an <code>onclick</code> event listener. You have selected on and clicked on the image
+            as highlighted with the inspector tool. This image has become the <b>target</b> of the <code>onclick</code> event. Now, the bubbling phase begins. Starting from the document,
+            the event travels down the element ancestry all the way till it reaches the target (the image). As it goes down the ancestry tree, it will pass by the card container, which is the parent of the image.
+            Now, once the event has reached the target, it will bubble back up to the top. As it bubbles up, it will go back the path it came from. It is this phase where the event will trigger
+            any event listeners in that path. In our case, the onclick event on the card container will activate as the event bubbles up past it.</p>
+            <p>This is important to note as it allows us to make more efficient event listeners. For instance, let's say you have three buttons within a flexbox.
+            Each button will scroll to different places on the page. You could make an event listener for each button, however, that is inefficient. What could you do instead?
+            Well, remember the phases of an event's travel? Even if an event triggers on a target, it will activate any event listeners on parent elements during the <b>bubbling phase</b>.
+            Which means we can have one event listener on the container instead of having three individual listeners where there is one for each button. From there, you can set up conditionals that uses something like
+            <code>event.target.classList.contains('class')</code> to check for each section and then call the scroll functionality to that section when present.</p>
+            <h1>DOM Traversal</h1>
+            <p>This will be brief as I'll just show the various traversal methods you can use. In JavaScript you have various ways to select parent, child, and sibling
+            elements and nodes from a different element. As shown here:</p>
+            <pre><code class="code_block">
+<span class="js_comment">// Family tree traversal for nodes</span>
+element.childNodes;
+element.parentNode;
+element.previousSibling;
+element.nextSibling;
+
+<span class="js_comment">// Family tree traversal for elements</span>
+element.children;
+element.parentElement;
+element.previousElementSibling;
+element.nextElementSibling;
+element.<span class="js_function">closest</span>('element_selector'); <span class="js_comment">// Function to find closest ancestor of that selection</span>
+
+            </code></pre>
+        <h1>Advanced Event Handling</h1>
+        There is an alternative way to create an event listener rather than using <code>element.addEventListener('event', () => {})</code>.
+        The alternative method involves replacing the <code>.addEventListener</code> part with <code>.oneventname = function</code>.
+
         </section>
     </main>
 </body>
