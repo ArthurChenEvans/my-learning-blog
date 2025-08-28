@@ -26,10 +26,10 @@
     </nav>
     <main>
         <section class="title_section">
-            <h1>DOM Manipulation</h1>
+            <h1>Logical Operators</h1>
         </section>
         <section class="information_section">
-            <h2>Created: 26th August 2025 | Last Updated: 26th August 2025</h2>
+            <h2>Created: 26th August 2025 | Last Updated: 28th August 2025</h2>
         </section>
         <section class="blog-content_section">
             <h1>Spread operator and Rest Pattern</h1>
@@ -60,6 +60,16 @@
 }
 <span class="js_function">sum</span>(<span class="js_number">1</span>, <span class="js_number">2</span>, <span class="js_number">3</span>, <span class="js_number">4</span>, <span class="js_number">5</span>); <span class="js_comment">// 15</span>
             </code></pre>
+            <h1>Logical Operators</h1>
+            <p>There are three main logical operators in JS as well as their assignment variants: <code>||</code>, <code>&&</code>, and <code>??</code>.
+            To start with the simplest one, <code>||</code> returns the first truthy value it finds, and if there are only falsy values, then it returns the last operand.
+            <code>&&</code> is similar, but instead returns the first falsy value it finds, but if both values are truthy, then it also returns the last operand. <code>??</code>
+            returns the first non <code>null</code> or <code>undefined</code> value, and if there is none, then also returns the last operand.</p>
+            <p>These operators also have assignment variants: <code>&&=</code>, <code>||=</code>, and <code>??=</code>. They both assign the right operand based on the left variable's evaluation.
+            <code>&&=</code> checks whether the left is truthy, <code>||=</code> checks whether the left is falsy, and <code>??=</code> checks whether the left is nullish.
+            Now, regarding the nullish assignment operator, there is an extra variant used for chaining denoted with <code>?.</code> or the <b>optional chaining operator</b>. By connecting values like so:
+            <code>user?.username</code> which returns undefined if <code>user</code> is nullish, which helps in cases where you don't want to error on an empty object. To be precise, especially in longer chains, will return
+            as soon as at least one of the chained properties is nullish.</p>
         </section>
     </main>
 </body>
