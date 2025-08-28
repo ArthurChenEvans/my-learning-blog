@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Data Structures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Chen's Reteach Blog</h1>
+        <ul class="nav_links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+        <input type="checkbox" id="hamburger-checkbox">
+        <label for="hamburger-checkbox" id="hamburger-checkbox_container">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
+        <div id="modal_menu">
+            <a href="index.html">Home</a>
+            <a href="articles.html">Articles</a>
+        </div>
+    </nav>
+    <main>
+        <section class="title_section">
+            <h1>Data Structures</h1>
+        </section>
+        <section class="information_section">
+            <h2>Created: 28th August 2025 | Last Updated: 28th August 2025</h2>
+        </section>
+        <section class="blog-content_section">
+            <h1>Maps</h1>
+            <p>To begin with, I'll start with maps. You can think of them as 'pure' dictionary versions of objects, since like an object, they
+            contain key-value pairs. However, unlike an object, maps cannot contain any functions, but they can use non-string keys, which objects are restricted to.
+            Additionally, maps tend to be faster than objects, especially regarding lookups than their object counterparts.</p>
+            <p>A simple heuristic I like to use is that if I only need a pure dictionary that does not interact with an API or JSON formatting, then use a map since it's more performant anyway.
+            However, if I intend to add functions to my dictionary and/or intend to work with JSON formatting or API, then for both functional and readability purposes, I'll use an object (since
+                maps do not have parent.child.notation).</p>
+            <p>Anyway, here are some simple methods and properties belonging to maps:</p>
+            <pre><code class="code_block">
+<span class="js_comment">// 1. Create a new Map using the new Map() constructor</span>
+<span class="js_keyword">const</span> restaurant = <span class="js_keyword">new</span> <span class="js_function">Map</span>();
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Initial Map:'</span>, restaurant);
+
+<span class="js_comment">// 2. Add entries with .set(key, value)</span>
+<span class="js_comment">// The .set() method returns the map, so it can be chained.</span>
+restaurant
+.<span class="js_function">set</span>(<span class="js_string">'name'</span>, <span class="js_string">'Classic Italian'</span>)
+.<span class="js_function">set</span>(<span class="js_string">'open'</span>, <span class="js_number">11</span>)
+.<span class="js_function">set</span>(<span class="js_string">'close'</span>, <span class="js_number">23</span>)
+.<span class="js_function">set</span>(<span class="js_keyword">true</span>, <span class="js_string">'We are open!'</span>)
+.<span class="js_function">set</span>(<span class="js_keyword">false</span>, <span class="js_string">'We are closed.'</span>);
+
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Map after adding entries:'</span>, restaurant);
+
+<span class="js_comment">// 3. Get the number of entries with the .size property</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Current size:'</span>, restaurant.size); <span class="js_comment">// 5</span>
+
+<span class="js_comment">// 4. Get a value for a key with .get(key)</span>
+<span class="js_keyword">const</span> restaurantName = restaurant.<span class="js_function">get</span>(<span class="js_string">'name'</span>);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Restaurant name:'</span>, restaurantName); <span class="js_comment">// "Classic Italian"</span>
+
+<span class="js_comment">// 5. Check if a key exists with .has(key)</span>
+<span class="js_keyword">const</span> hasMenu = restaurant.<span class="js_function">has</span>(<span class="js_string">'menu'</span>);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Does the map have a "menu" key?'</span>, hasMenu); <span class="js_comment">// false</span>
+
+<span class="js_comment">// 6. Delete an entry with .delete(key)</span>
+restaurant.<span class="js_function">delete</span>(<span class="js_keyword">false</span>); <span class="js_comment">// Removes the "We are closed." entry</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Size after deleting one entry:'</span>, restaurant.size); <span class="js_comment">// 4</span>
+
+<span class="js_comment">// 7. Clear all entries from the map with .clear()</span>
+restaurant.<span class="js_function">clear</span>();
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Size after clearing the map:'</span>, restaurant.size); <span class="js_comment">// 0</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Final Map:'</span>, restaurant);
+
+            </code></pre>
+            <p>Notice that, with <code>.set</code> you can chain them, which makes adding key-value pairs to a map easier.</p>
+        <h1>Sets</h1>
+            <p>Sets, unlike arrays, can only hold unique values, which means duplicates will automatically be removed. In addition, they are unordered and cannot be richly modified like arrays can.
+            These sets have their own methods and properties like maps:</p>
+            <pre><code class="code_block">
+<span class="js_comment">// 1. Create a new, empty Set</span>
+<span class="js_keyword">const</span> uniqueItems = <span class="js_keyword">new</span> <span class="js_function">Set</span>();
+
+<span class="js_comment">// 2. Add items with .add(value)</span>
+<span class="js_comment">// .add() returns the set, so it can be chained.</span>
+uniqueItems.<span class="js_function">add</span>(<span class="js_string">'First'</span>);
+uniqueItems.<span class="js_function">add</span>(<span class="js_number">100</span>);
+uniqueItems.<span class="js_function">add</span>(<span class="js_string">'Second'</span>);
+uniqueItems.<span class="js_function">add</span>(<span class="js_string">'First'</span>); <span class="js_comment">// This duplicate is ignored</span>
+
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Set after adding items:'</span>, uniqueItems);
+
+<span class="js_comment">// 3. Get the number of items with the .size property</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Current size:'</span>, uniqueItems.size); <span class="js_comment">// 3, because the duplicate was ignored</span>
+
+<span class="js_comment">// 4. Check if an item exists with .has(value)</span>
+<span class="js_keyword">const</span> hasItem = uniqueItems.<span class="js_function">has</span>(<span class="js_number">100</span>);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Does the set have 100?'</span>, hasItem); <span class="js_comment">// true</span>
+
+<span class="js_comment">// 5. Delete an item with .delete(value)</span>
+uniqueItems.<span class="js_function">delete</span>(<span class="js_string">'Second'</span>);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Size after deleting "Second":'</span>, uniqueItems.size); <span class="js_comment">// 2</span>
+
+<span class="js_comment">// 6. Create a Set from an array to remove duplicates (spread operator)</span>
+<span class="js_keyword">const</span> numbersWithDuplicates = [<span class="js_number">1</span>, <span class="js_number">2</span>, <span class="js_number">3</span>, <span class="js_number">2</span>, <span class="js_number">4</span>, <span class="js_number">1</span>];
+<span class="js_keyword">const</span> uniqueNumbers = <span class="js_keyword">new</span> <span class="js_function">Set</span>(numbersWithDuplicates);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Set created from array:'</span>, uniqueNumbers); <span class="js_comment">// Set(4) { 1, 2, 3, 4 }</span>
+
+<span class="js_comment">// 7. Clear all items from a set with .clear()</span>
+uniqueItems.<span class="js_function">clear</span>();
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Size after clearing:'</span>, uniqueItems.size); <span class="js_comment">// 0</span>
+
+            </code></pre>
+            <p>Sets also have extra methods to handle comparisons with other sets. They're broken down into two types based on what they return: construction methods and boolean methods. Construction
+            methods create a new set while boolean methods return true or false. I'll demonstrate them here:</p>
+            <pre><code class="code_block">
+<span class="js_comment">// --- Setup: Create a few sets to work with ---</span>
+<span class="js_keyword">const</span> setA = <span class="js_keyword">new</span> <span class="js_function">Set</span>([<span class="js_number">1</span>, <span class="js_number">2</span>, <span class="js_number">3</span>, <span class="js_number">4</span>]);
+<span class="js_keyword">const</span> setB = <span class="js_keyword">new</span> <span class="js_function">Set</span>([<span class="js_number">3</span>, <span class="js_number">4</span>, <span class="js_number">5</span>, <span class="js_number">6</span>]);
+
+<span class="js_comment">// --- Creation of New Sets ---</span>
+
+<span class="js_comment">// .intersection() - New set with elements present in BOTH sets</span>
+<span class="js_keyword">const</span> intersection = setA.<span class="js_function">intersection</span>(setB);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Intersection:'</span>, intersection); <span class="js_comment">// Set(2) { 3, 4 }</span>
+
+<span class="js_comment">// .union() - New set with all elements from BOTH sets (no duplicates)</span>
+<span class="js_keyword">const</span> union = setA.<span class="js_function">union</span>(setB);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Union:'</span>, union); <span class="js_comment">// Set(6) { 1, 2, 3, 4, 5, 6 }</span>
+
+<span class="js_comment">// .difference() - New set with elements from the FIRST set that are NOT in the second</span>
+<span class="js_keyword">const</span> difference = setA.<span class="js_function">difference</span>(setB);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Difference (A - B):'</span>, difference); <span class="js_comment">// Set(2) { 1, 2 }</span>
+
+<span class="js_comment">// .symmetricDifference() - New set with elements present in EITHER set, but NOT BOTH</span>
+<span class="js_keyword">const</span> symmetric = setA.<span class="js_function">symmetricDifference</span>(setB);
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Symmetric Difference:'</span>, symmetric); <span class="js_comment">// Set(4) { 1, 2, 5, 6 }</span>
+
+<span class="js_comment">// --- Relationship Testing (Boolean results) ---</span>
+
+<span class="js_keyword">const</span> setC = <span class="js_keyword">new</span> <span class="js_function">Set</span>([<span class="js_number">1</span>, <span class="js_number">2</span>]);
+<span class="js_keyword">const</span> setD = <span class="js_keyword">new</span> <span class="js_function">Set</span>([<span class="js_number">10</span>, <span class="js_number">11</span>]);
+
+<span class="js_comment">// .isDisjointFrom() - true if the sets have NO elements in common</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is A disjoint from B?'</span>, setA.<span class="js_function">isDisjointFrom</span>(setB)); <span class="js_comment">// false</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is A disjoint from D?'</span>, setA.<span class="js_function">isDisjointFrom</span>(setD)); <span class="js_comment">// true</span>
+
+<span class="js_comment">// .isSubsetOf() - true if ALL elements of the first set are in the second</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is C a subset of A?'</span>, setC.<span class="js_function">isSubsetOf</span>(setA)); <span class="js_comment">// true</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is A a subset of C?'</span>, setA.<span class="js_function">isSubsetOf</span>(setC)); <span class="js_comment">// false</span>
+
+<span class="js_comment">// .isSupersetOf() - true if the first set contains ALL elements of the second</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is A a superset of C?'</span>, setA.<span class="js_function">isSupersetOf</span>(setC)); <span class="js_comment">// true</span>
+<span class="js_keyword">console</span>.<span class="js_function">log</span>(<span class="js_string">'Is C a superset of A?'</span>, setC.<span class="js_function">isSupersetOf</span>(setA)); <span class="js_comment">// false</span>
+
+            </code></pre>
+            <p>A simple heuristic I like to use in regard to choosing between arrays and sets is, by default, I will use an array. If I know I'll need a unique list and/or only intend to use the list for checking whether something exists without any rich modifications
+                , then I'll use a set.</p>
+        </section>
+    </main>
+</body>
+</html>
