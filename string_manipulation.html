@@ -53,10 +53,48 @@ my_string.<span class="js_function">lastIndexOf</span>(<span class="js_string">"
 
 <span class="js_comment">// The following 3 methods check whether a substring exists at all, or whether the string starts or ends with it</span>
 my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>
+my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>
 my_string.<span class="js_function">includes</span>(<span class="js_string">"He"</span>); <span class="js_comment">// true</span>
-my_string.<span class="js_function">includes</span>(<span class="js_string">"!"</span>); <span class="js_comment">// true</span>
-                </code>
-            </pre>
+
+<span class="js_comment">// While not solely querying, these two methods do involve searching for a substring and then replacing it</span>
+my_string.<span class="js_function">replace</span>(<span class="js_string">"!"</span>, <span class="js_string">"?"</span>); <span class="js_comment">// "Hello World?"</span>
+my_string.<span class="js_function">replaceAll</span>(<span class="js_string">"o"</span>, <span class="js_string">"0"</span>); <span class="js_comment">// "Hell0 W0rld?"</span>
+                </code></pre>
+            <p>While not used to query for a specific substring within a string, there is a useful property to check for the number of characters in a string (or the number of elements
+            in an array!). This is done via <code>my_string.length;</code>.</p>
+            <h1>String Editing</h1>
+            <p>This is where the bulk of the methods come in. I'll split them into two groups: simple edits and whole modifications. Simple involves trimming, padding, and repeating, while whole modifications
+            involve extracting a substring, separating a string into a list of strings, and combining a list of strings into a string:</p>
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> my_string = <span class="js_string">"   Hello World!   "</span>;
+
+<span class="js_comment">// Simple modifications: trims</span>
+my_string.<span class="js_function">trim</span>(); <span class="js_comment">// "Hello World!"</span>
+my_string.<span class="js_function">trimEnd</span>(); <span class="js_comment">// "   Hello World!"</span>
+my_string.<span class="js_function">trimStart</span>(); <span class="js_comment">// "Hello World!   "</span>
+
+<span class="js_comment">// Simple modifications: paddings</span>
+<span class="js_keyword">const</span> pad_string = <span class="js_string">"I'm padded!"</span>;
+pad_string.<span class="js_function">padStart</span>(<span class="js_number">3</span>, <span class="js_string">"+"</span>); <span class="js_comment">// "+++I'm padded!"</span>
+pad_string.<span class="js_function">padEnd</span>(<span class="js_number">3</span>, <span class="js_string">"+"</span>); <span class="js_comment">// "I'm padded!+++"</span>
+
+<span class="js_comment">// Simple modifications: repeat</span>
+<span class="js_keyword">const</span> repeat_string = <span class="js_string">"repeat."</span>;
+repeat_string.<span class="js_function">repeat</span>(<span class="js_number">3</span>); <span class="js_comment">// "repeat.repeat.repeat."</span>
+
+<span class="js_comment">// Whole modifications: slicing</span>
+<span class="js_keyword">const</span> slice_string = <span class="js_string">"String To Slice!"</span>;
+slice_string.<span class="js_function">slice</span>(<span class="js_number">7</span>, <span class="js_number">9</span>); <span class="js_comment">// "To"</span>
+slice_string.<span class="js_function">slice</span>(<span class="js_number">7</span>); <span class="js_comment">// "To Slice!" - Gets to end of string if only start value given</span>
+
+<span class="js_comment">// Whole modifications: splitting</span>
+<span class="js_keyword">const</span> split_string = <span class="js_string">"String To Split"</span>;
+split_string.<span class="js_function">split</span>(<span class="js_string">" "</span>); <span class="js_comment">// ["String", "To", "Split"]</span>
+
+<span class="js_comment">// Whole modifications: joining</span>
+<span class="js_keyword">const</span> join_array = <span class="js_string">["array", "to", "join"];</span>;
+join_array.<span class="js_function">join</span>(<span class="js_string">"+"</span>); <span class="js_comment">// "array+to+join"</span>
+                </code></pre>
         </section>
     </main>
 </body>
