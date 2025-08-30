@@ -33,7 +33,12 @@
         </section>
         <section class="blog-content_section">
             <h1>Basics of Strings</h1>
-            <p></p>
+            <p>Strings in Javascript, along with numbers, booleans, bigInts, and more are what are known as <b>primitive types</b>. Primitive types involve one
+            'type' of value and not collections of various types like <b>reference types</b> (think objects, maps, arrays, etc). A key property regarding primitive types is that
+            they are <b>immutable</b>, which means the values themselves are never modified in memory once created. So what do you do if you want to edit said value, such as removing whitespace
+            from a string, or padding it with some characters, or replacing values if the value itself can never be modified? To get around this, we temporarily wrap the primitive type in a wrapper object that accesses the string. This
+                wrapper object allows for methods to be called on it, which builds a new string by applying a method's logic on the primitive value.
+                This process is known as <b>boxing</b>.</p>
             <h1>String Querying</h1>
             <p>To begin with, I'll start with methods that involve basic string querying. This would involve checking
             the first and last index of an element, whether the string includes a given argument or not, and whether a string
@@ -43,13 +48,13 @@
 <span class="js_keyword">const</span> my_string = <span class="js_string">"Hello World!"</span>;
 
 <span class="js_comment">// Methods find the first and last index of a given substring respectively</span>
-my_string.<span class="js_function">indexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 4</span>);
-my_string.<span class="js_function">lastIndexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 7</span>);
+my_string.<span class="js_function">indexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 4</span>
+my_string.<span class="js_function">lastIndexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 7</span>
 
 <span class="js_comment">// The following 3 methods check whether a substring exists at all, or whether the string starts or ends with it</span>
-my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>);
-my_string.<span class="js_function">includes</span>(<span class="js_string">"He"</span>); <span class="js_comment">// true</span>);
-my_string.<span class="js_function">includes</span>(<span class="js_string">"!"</span>); <span class="js_comment">// true</span>);
+my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>
+my_string.<span class="js_function">includes</span>(<span class="js_string">"He"</span>); <span class="js_comment">// true</span>
+my_string.<span class="js_function">includes</span>(<span class="js_string">"!"</span>); <span class="js_comment">// true</span>
                 </code>
             </pre>
         </section>
