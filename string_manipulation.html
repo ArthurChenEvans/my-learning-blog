@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>String Manipulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Chen's Reteach Blog</h1>
+        <ul class="nav_links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+        <input type="checkbox" id="hamburger-checkbox">
+        <label for="hamburger-checkbox" id="hamburger-checkbox_container">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </label>
+        <div id="modal_menu">
+            <a href="index.html">Home</a>
+            <a href="articles.html">Articles</a>
+        </div>
+    </nav>
+    <main>
+        <section class="title_section">
+            <h1>String Manipulation</h1>
+        </section>
+        <section class="information_section">
+            <h2>Created: 30th August 2025 | Last Updated: 30th August 2025</h2>
+        </section>
+        <section class="blog-content_section">
+            <h1>Basics of Strings</h1>
+            <p></p>
+            <h1>String Querying</h1>
+            <p>To begin with, I'll start with methods that involve basic string querying. This would involve checking
+            the first and last index of an element, whether the string includes a given argument or not, and whether a string
+            starts with or ends with an argument. I believe code will be simpler to explain than, well, trying to explain them since
+            the keywords for the methods used are clear and explicit anyway:</p>
+            <pre><code class="code_block">
+<span class="js_keyword">const</span> my_string = <span class="js_string">"Hello World!"</span>;
+
+<span class="js_comment">// Methods find the first and last index of a given substring respectively</span>
+my_string.<span class="js_function">indexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 4</span>);
+my_string.<span class="js_function">lastIndexOf</span>(<span class="js_string">"o"</span>); <span class="js_comment">// 7</span>);
+
+<span class="js_comment">// The following 3 methods check whether a substring exists at all, or whether the string starts or ends with it</span>
+my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>);
+my_string.<span class="js_function">includes</span>(<span class="js_string">"He"</span>); <span class="js_comment">// true</span>);
+my_string.<span class="js_function">includes</span>(<span class="js_string">"!"</span>); <span class="js_comment">// true</span>);
+                </code>
+            </pre>
+        </section>
+    </main>
+</body>
+</html>
