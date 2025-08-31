@@ -56,6 +56,9 @@ my_string.<span class="js_function">includes</span>(<span class="js_string">"llo
 my_string.<span class="js_function">includes</span>(<span class="js_string">"llo"</span>); <span class="js_comment">// true</span>
 my_string.<span class="js_function">includes</span>(<span class="js_string">"He"</span>); <span class="js_comment">// true</span>
 
+<span class="js_comment">// This one takes an index and searches for what character is at said index</span>
+my_string.<span class="js_function">charAt</span>(<span class="js_number">2</span>); <span class="js_comment">// "l"</span>
+
 <span class="js_comment">// While not solely querying, these two methods do involve searching for a substring and then replacing it</span>
 my_string.<span class="js_function">replace</span>(<span class="js_string">"!"</span>, <span class="js_string">"?"</span>); <span class="js_comment">// "Hello World?"</span>
 my_string.<span class="js_function">replaceAll</span>(<span class="js_string">"o"</span>, <span class="js_string">"0"</span>); <span class="js_comment">// "Hell0 W0rld?"</span>
@@ -67,6 +70,10 @@ my_string.<span class="js_function">replaceAll</span>(<span class="js_string">"o
             involve extracting a substring, separating a string into a list of strings, and combining a list of strings into a string:</p>
             <pre><code class="code_block">
 <span class="js_keyword">const</span> my_string = <span class="js_string">"   Hello World!   "</span>;
+
+<span class="js_comment">// Simple modifications: casing</span>
+my_string.<span class="js_function">toUpperCase</span>(); <span class="js_comment">// "HELLO WORLD!"</span>
+my_string.<span class="js_function">toLowerCase</span>(); <span class="js_comment">// "hello world!"</span>
 
 <span class="js_comment">// Simple modifications: trims</span>
 my_string.<span class="js_function">trim</span>(); <span class="js_comment">// "Hello World!"</span>
